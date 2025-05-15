@@ -5,6 +5,8 @@ import (
 	"encoding/hex"
 )
 
+
+//
 func Hash(content []byte) string {
 	h := sha256.New()
 	h.Write(content)

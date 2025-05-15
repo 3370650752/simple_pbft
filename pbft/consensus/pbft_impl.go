@@ -7,16 +7,25 @@ import (
 	"fmt"
 )
 
+//定义共识过程中节点的状态体
 type State struct {
+	//当前节点的视图编号
 	ViewID         int64
+	//消息日志
 	MsgLogs        *MsgLogs
+	//最后一次收到的序列号
 	LastSequenceID int64
+	//当前节点处于的阶段
 	CurrentStage   Stage
 }
 
+//定义消息日志结构体
 type MsgLogs struct {
+	//请求信息，存储cilent请求的操作信息
 	ReqMsg        *RequestMsg
+	//prepare阶段消息
 	PrepareMsgs   map[string]*VoteMsg
+	//commit阶段消息
 	CommitMsgs    map[string]*VoteMsg
 }
 
